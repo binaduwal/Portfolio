@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import About from "./About";
+import Skills from "./Skills";
+import Project from "./Project";
 
 const LandingPage = ({ theme, toggleTheme }) => {
   return (
@@ -9,6 +11,8 @@ const LandingPage = ({ theme, toggleTheme }) => {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Banner />
       <About />
+      <Skills/>
+      <Project/>
     </section>
   );
 };
