@@ -4,6 +4,7 @@ import Banner from "../components/Banner";
 import About from "./About";
 import Skills from "./Skills";
 import Project from "./Project";
+import Contact from "./Contact";
 
 const LandingPage = ({ theme, toggleTheme }) => {
   return (
@@ -13,6 +14,7 @@ const LandingPage = ({ theme, toggleTheme }) => {
       <About />
       <Skills/>
       <Project/>
+      <Contact/>
     </section>
   );
 };

@@ -4,6 +4,7 @@ export const navbar = [
   { name: "Home", link: "/" },
   { name: "About", link: "/about" },
   { name: "Skills", link: "/skills" },
+  { name: "Experience", link: "/experience" },
   { name: "Project", link: "/project" },
   { name: "Contact", link: "/contact" },
 ];
@@ -15,7 +16,7 @@ export const projects = [
     description:
       "A full-featured online store using the MERN stack and Firebase Auth.",
     image: "/images/image-1.png",
-    demoLink: "https://yourdemo.com",
+    demoLink: "https://duwal-agency-2h3d.vercel.app/",
     githubLink: "https://github.com/binaduwal/Duwal.Agency",
     skills: ["react", "css", "javascript"],
   },
@@ -24,8 +25,8 @@ export const projects = [
     title: "Custom CMS",
     description: "CMS with dynamic content management and RBAC features.",
     image: "/images/image-1.png",
-    demoLink: "https://cmsdemo.com",
-    githubLink: "https://github.com/binaduwal/ShopX",
+    demoLink: "https://password-generator-kappa-beige.vercel.app/",
+    githubLink: "https://github.com/binaduwal/Password-Generator#",
     skills: ["react", "css" ],
   },
   {

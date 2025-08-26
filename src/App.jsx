@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import LandingPage from './pages/LandingPage'
 import Footer from './components/Footer';
+import { ScrollProgress } from './components/eldoraui/scrollProgress';
 
 const App = () => {
    const [theme, setTheme] = useState(
@@ -26,6 +27,7 @@ const App = () => {
   
   return (
     <div className='min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-500 font-sans'>
+    <ScrollProgress/>
       <LandingPage theme={theme} toggleTheme={toggleTheme} />
       <Footer/>
     </div>

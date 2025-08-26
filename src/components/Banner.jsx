@@ -4,11 +4,11 @@ import SocialMediaIcons from "./SocialMediaIcons";
 
 const Banner = () => {
   return (
-    <section className="mx-auto container pt-10 flex justify-center dark:text-white mb-10">
+    <section className="mx-auto container pt-[80px] flex justify-center dark:text-white mb-30 ">
       <div className="w-[700px] flex flex-col space-y-5">
         <h1 className="text-4xl md:text-6xl font-bold">
           Hi, I'm <span className="text-pink-700">Bina</span> Duwal
-        </h1>
+        </h1> 
         <span className="text-3xl md:text-4xl font-bold ">
           I'm a &lt; <TypeWriter /> /&gt;
         </span>

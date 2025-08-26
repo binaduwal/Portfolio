@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { navbar } from "../constants";
 import Logo from "./Logo";
 import { FiSun } from "react-icons/fi";
 import { FiMoon } from "react-icons/fi";
 
 const Navbar = ({ theme, toggleTheme }) => {
+  const [shadow, setShadow] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setShadow(true);
+      } else {
+        setShadow(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="flex justify-between mb-20">
-      <Logo />
-      <div className="hidden md:flex gap-10 font-bold text-lg ">
+ <section
+      className={`fixed top-0 left-0 right-0 z-50 bg-gray-100 dark:bg-gray-900 flex justify-between p-4 transition-shadow duration-300 ${
+        shadow ? "shadow-lg" : ""
+      }`}
+    >      <Logo />
+      <div className="hidden md:flex gap-10 font-bold text-lg  ">
         {navbar.map((item) => (
           <p
             key={item.name}
