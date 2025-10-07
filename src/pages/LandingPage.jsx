@@ -8,7 +8,7 @@ import Contact from "./Contact";
 
 const LandingPage = ({ theme, toggleTheme }) => {
   return (
-    <section className="mx-auto container p-4 md:p-6">
+    <section className="mx-auto container p-4 md:p-6 ">
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Banner />
       <About />

@@ -29,12 +29,13 @@ const Navbar = ({ theme, toggleTheme }) => {
     >      <Logo />
       <div className="hidden md:flex gap-10 font-bold text-lg  ">
         {navbar.map((item) => (
-          <p
+          <a
+            href={item.link}
             key={item.name}
             className="relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:w-full after:origin-bottom after:scale-x-0  after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] after:bg-pink-700 hover:text-pink-700 hover:after:origin-bottom hover:after:scale-x-100 dark:text-white"
           >
             {item.name}
-          </p>
+          </a>
         ))}
       </div>
 

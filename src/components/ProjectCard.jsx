@@ -10,8 +10,7 @@ const ProjectCard = () => {
             href={item.demoLink}
             target="_blank"
             key={item.id}
-            className="shadow-xl p-4 rounded-2xl"
-            style={{ backgroundColor: "#262612" }}
+            className="shadow-xl  bg-gray-800 p-4 rounded-2xl"
           >
             <img src={item.image} className="rounded-2xl" alt={item.title} />
             <div className="flex items-center justify-between">

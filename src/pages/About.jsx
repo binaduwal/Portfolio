@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <section className="mx-auto container p-4 md:p-6 dark:text-white ">
+    <section className="mx-auto container p-4 md:p-6 dark:text-white scroll-mt-24" id="about">
       <div className="flex gap-10 flex-col lg:flex-row">
         <img
           src="/profile_picture.jpg"
