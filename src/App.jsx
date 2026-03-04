@@ -1,37 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import LandingPage from './pages/LandingPage'
-import Footer from './components/Footer';
-import { ScrollProgress } from './components/eldoraui/scrollProgress';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
+import AnimatedBackground from './components/AnimatedBackground.jsx';
+import SplashScreen from './components/SplashScreen.jsx';
+import Navbar from './components/Navbar.jsx';
+import Portfolio from './components/Portfolio.jsx';
 
-const App = () => {
-   const [theme, setTheme] = useState(
-    localStorage.getItem('theme') || 'light'
-  )
+import CustomCursor from './components/CustomCursor.jsx';
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => {
-      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
-      localStorage.setItem('theme', newTheme);
-      return newTheme;
-    });
-  };
-    useEffect(() => {
-    const htmlElement = document.documentElement;
-    if (theme === 'dark') {
-      htmlElement.classList.add('dark');
-    } else {
-      htmlElement.classList.remove('dark');
-    }
-  }, [theme]);
+export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
 
-  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className='min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-500 font-sans'>
-    <ScrollProgress/>
-      <LandingPage theme={theme} toggleTheme={toggleTheme} />
-      <Footer/>
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-emerald-500/30 selection:text-emerald-500 font-sans antialiased overflow-x-hidden cursor-none">
+      <CustomCursor />
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <SplashScreen key="splash" onComplete={() => setIsLoading(false)} />
+        ) : (
+          <>
+            <AnimatedBackground />
+            <Navbar />
+            <main className="relative">
+              <Portfolio />
+            </main>
+          </>
+        )}
+      </AnimatePresence>
     </div>
-  )
+  );
 }
-
-export default App
