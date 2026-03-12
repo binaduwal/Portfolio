@@ -21,7 +21,11 @@ import {
   Zap,
   Shield,
   MessageSquare,
-  Send
+  Send,
+  ArrowUpRight,
+  Plus,
+  ArrowDown,
+  Activity
 } from 'lucide-react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -268,69 +272,156 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading subtitle="Selected Works">Projects</SectionHeading>
+     <section id="projects" className="py-40 bg-[#020202] text-white relative overflow-hidden selection:bg-emerald-500/30">
+  {/* Subtle Technical Grid Background */}
+  <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98103_1px,transparent_1px),linear-gradient(to_bottom,#10b98103_1px,transparent_1px)] bg-[size:64px_64px]" />
+  
+  {/* Ambient Light Orbs */}
+  <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {data.projects.map((project, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <GlassCard className="group p-0 overflow-hidden flex flex-col h-full">
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-60" />
-                    <div className="absolute bottom-4 left-6">
-                      <div className="flex flex-wrap gap-2 mb-2">
-                        {project.stack.slice(0, 3).map((tech, j) => (
-                          <span key={j} className="text-[8px] uppercase tracking-widest font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                      <h3 className="text-2xl font-black text-white group-hover:text-emerald-400 transition-colors">
-                        {project.title}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <div className="p-8 flex flex-col flex-grow">
-                    <ul className="space-y-3 mb-8 flex-grow">
-                      {project.bullets.map((bullet, j) => (
-                        <li key={j} className="text-sm text-white/40 leading-relaxed flex gap-3">
-                          <span className="text-emerald-500 font-bold shrink-0 mt-1">→</span>
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex items-center gap-4 pt-6 border-t border-white/5">
-                      <a href="#" className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:text-emerald-400 transition-colors">
-                        <Github size={14} /> Source Code
-                      </a>
-                      <a href={project.demo} className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white hover:text-emerald-400 transition-colors">
-                        <ExternalLink size={14} /> Live Demo
-                        
-                      </a>
-                    </div>
-                  </div>
-                </GlassCard>
-              </motion.div>
-            ))}
-          </div>
+  <div className="max-w-7xl mx-auto px-6 relative z-10">
+    
+    {/* Refined Minimalist Header */}
+    <div className="flex flex-col md:flex-row justify-between items-end mb-48 gap-8 border-b border-white/5 pb-12">
+      <div className="space-y-6">
+        <div className="flex items-center gap-3">
+          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.6em] text-emerald-500">Inventory_2024</span>
         </div>
-      </section>
+        <h2 className="text-7xl md:text-9xl font-bold tracking-tighter uppercase">
+          Featured <br /> <span className="text-zinc-800">Outputs</span>
+        </h2>
+      </div>
+      <div className="text-right hidden lg:block">
+        <p className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest leading-loose">
+          Based in London / Working Worldwide <br />
+          Focus: High-Performance Systems <br />
+          Availability: Q3 2024
+        </p>
+      </div>
+    </div>
 
+    {/* Projects: Minimalist Dossier Style */}
+    <div className="space-y-64">
+      {data.projects.map((project, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 lg:gap-32 items-center group`}
+        >
+          
+          {/* Visual Canvas: The "Viewport" */}
+          <div className="w-full lg:w-3/5 perspective-[2000px]">
+            <motion.div 
+              whileHover={{ rotateY: i % 2 === 0 ? -8 : 8, rotateX: 4, scale: 1.02 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative aspect-[16/9] bg-zinc-950 overflow-hidden border border-white/10 group-hover:border-emerald-500/30 transition-colors duration-700 shadow-2xl"
+            >
+              {/* Image Layer */}
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover transition-all duration-[1.5s] ease-out grayscale group-hover:grayscale-0 scale-100 group-hover:scale-110 opacity-40 group-hover:opacity-100"
+              />
+              
+              {/* Blue-Print UI Overlay (appears on hover) */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                 {/* Internal HUD Elements */}
+                 <div className="absolute top-4 left-4 font-mono text-[8px] text-emerald-500 px-2 py-1 bg-black/60 border border-emerald-500/20 uppercase tracking-widest">
+                   Status: Live_Execution
+                 </div>
+                 <div className="absolute bottom-4 right-4 flex gap-2">
+                    <div className="w-8 h-[1px] bg-emerald-500/50 mt-2" />
+                    <span className="font-mono text-[8px] text-emerald-500 uppercase">SYS_REF: 0x{i+1}FF</span>
+                 </div>
+              </div>
+
+              {/* Sophisticated Scanline Effect */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent h-1/2 w-full -top-full group-hover:animate-scan-slow pointer-events-none" />
+            </motion.div>
+          </div>
+
+          {/* Narrative Side: The "Dossier" */}
+          <div className="w-full lg:w-2/5 flex flex-col gap-10">
+            <div className="space-y-6">
+              <div className="flex items-center gap-6">
+                <span className="font-mono text-emerald-500/40 text-sm">/ 0{i + 1}</span>
+                <div className="h-[1px] flex-grow bg-zinc-900 group-hover:bg-emerald-500/20 transition-colors" />
+              </div>
+              
+              <h3 className="text-5xl md:text-7xl font-bold tracking-tight uppercase leading-none group-hover:italic transition-all duration-500">
+                {project.title}
+              </h3>
+            </div>
+
+            <div className="space-y-6">
+               <p className="text-zinc-400 text-lg font-light leading-relaxed">
+                 {project.bullets[0]}
+               </p>
+               
+               {/* Metadata Pills */}
+               <div className="flex flex-wrap gap-2">
+                 {project.stack.map((tag, idx) => (
+                   <span key={idx} className="text-[10px] font-mono border border-zinc-800 px-3 py-1 text-zinc-500 uppercase tracking-tighter hover:border-emerald-500/40 hover:text-emerald-400 transition-all cursor-default">
+                     {tag}
+                   </span>
+                 ))}
+               </div>
+            </div>
+
+            <div className="pt-8">
+              <a 
+                href={project.demo} 
+                className="group/btn relative inline-flex items-center gap-12"
+              >
+                <div className="relative">
+                  <div className="w-14 h-14 rounded-full border border-zinc-800 flex items-center justify-center group-hover/btn:border-emerald-500 transition-all duration-500">
+                    <ArrowUpRight size={20} className="text-zinc-400 group-hover/btn:text-emerald-500 group-hover/btn:rotate-45 transition-all" />
+                  </div>
+                </div>
+                
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-1">View Production</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] group-hover/btn:text-emerald-500 transition-colors">Launch Project</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+
+    {/* Section Footer */}
+    <footer className="mt-64 flex flex-col items-center">
+       <div className="w-[1px] h-32 bg-gradient-to-b from-zinc-800 to-transparent mb-16" />
+       
+       <button className="group relative px-20 py-8 border border-zinc-900 overflow-hidden">
+          <span className="relative z-10 font-mono text-[10px] uppercase tracking-[1em] text-zinc-500 group-hover:text-black transition-colors duration-500">
+            Access Full Archive
+          </span>
+          <div className="absolute inset-0 bg-emerald-500 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+       </button>
+       
+       <span className="mt-12 font-mono text-[8px] text-zinc-800 uppercase tracking-[0.8em]">
+         Last Updated: May 2024 // System Status: 100%
+       </span>
+    </footer>
+  </div>
+
+  <style dangerouslySetInnerHTML={{ __html: `
+    @keyframes scan-slow {
+      0% { top: -100%; opacity: 0; }
+      50% { opacity: 1; }
+      100% { top: 150%; opacity: 0; }
+    }
+    .group:hover .group-hover\\:animate-scan-slow {
+      animation: scan-slow 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+  `}} />
+</section>
       {/* Education & Certs */}
       <section id="education" className="py-20 px-8 bg-white/[0.01]">
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-32">

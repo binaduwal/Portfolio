@@ -7,7 +7,7 @@ export const data = {
       "Backend Developer",
       "UI / UX Designer"
     ],
-    summary: "Passionate and results-driven frontend developer with nearly 1 year of experience in building responsive, scalable, and user-focused web applications using React.js, Next.js, and modern UI frameworks. Adept at collaborating with cross-functional teams, optimizing application performance, and delivering clean, maintainable code. Familiar with Agile/Scrum environments, version control, and modern testing tools. Eager to grow and contribute to impactful projects.",
+    summary: "Passionate and results-driven frontend developer with more than 1.5 year of experience in building responsive, scalable, and user-focused web applications using React.js, Next.js, and modern UI frameworks. Adept at collaborating with cross-functional teams, optimizing application performance, and delivering clean, maintainable code.",
     location: "Bhaktapur, Nepal",
     email: "duwalbina2@gmail.com",
     phone: "98xxxxxxxx",
@@ -53,7 +53,7 @@ export const data = {
         "Developed and improved cart functionality for product purchases.",
         "Identified and fixed UI and functional issues across the website."
       ],
-      demo:"https://www.bodykore.com/"
+      demo: "https://www.bodykore.com/"
     },
     {
       title: "Bodykore CMS",
@@ -65,34 +65,35 @@ export const data = {
         "Integrated REST APIs to display and update content dynamically.",
         "Created reusable components for forms, tables, and layouts.",
       ],
-      demo:"https://cms.bodykore.com/"
+      demo: "https://cms.bodykore.com/"
     },
     {
-      title: "Content Management System",
-      stack: ["React", "Redux Toolkit", "RTK Query", "Node.js", "Express.js", "MongoDB"],
-      image: "https://picsum.photos/seed/cms/800/600",
+      title: "Dealer Resource",
+      stack: ["React"],
+      image: "/images/resource.png",
       bullets: [
-        "Built a dynamic CMS similar to WordPress, enabling users to manage content and modify the frontend dynamically.",
         "Implemented media handling (image upload/delete), a custom rich text editor, and a responsive UI.",
-        "Used Redux Toolkit and RTK Query for efficient state and data management."
-      ]
+      ],
+      demo: "https://resources.bodykore.com/",
     },
     {
-      title: "Food Delivery Website",
+      title: "Nepal Trade Union Congress (NTUC)",
       stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-      image: "https://picsum.photos/seed/food/800/600",
+      image: "images/ntuc.png",
       bullets: [
-        "Built a responsive food delivery app using Next.js, TypeScript, and Tailwind CSS.",
-        "Implemented reusable components, dynamic routing, and clean UI design to enhance performance and user experience."
-      ]
+        "Developed a fully responsive, content-rich website powered by a comprehensive admin dashboard for managing dynamic content updates with ease. Utilized React.js, TypeScript, Tailwind CSS, Zustand for state management, Framer Motion for smooth animations, and Axios for efficient API integration, delivering a seamless and scalable user experience."
+      ],
+      demo: "https://ntuc.org.np/"
+
     },
     {
-      title: "Duwal.Agency",
-      stack: ["React", "Tailwind CSS", "Framer Motion"],
-      image: "https://picsum.photos/seed/agency/800/600",
+      title: "NTUC (Dashboard)",
+      stack: ["React"],
+      image: "/images/ntuc dashboard.png",
       bullets: [
         "Built a responsive digital agency website using React, Tailwind CSS, and Framer Motion with animated UI and clean component architecture."
-      ]
+      ],
+      demo: "https://dashboard.ntuc.org.np/"
     }
   ],
   skills: [
