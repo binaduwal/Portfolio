@@ -38,9 +38,9 @@ export default function SkillCard({ skill }) {
       />
 
       {/* Main Card */}
-      <div className="relative bg-white/[0.03] border border-white/10 backdrop-blur-md rounded-2xl p-6 flex flex-col items-center justify-center gap-4 h-full transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/[0.06]">
+      <div className="relative bg-white/[0.03] border border-white/10 backdrop-blur-md rounded-2xl p-6 flex flex-col items-center justify-center gap-4 w-36 h-36 transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/[0.06]">
         {/* Icon Container */}
-        <div className="relative w-16 h-16 flex items-center justify-center">
+        <div className="relative flex items-center justify-center">
           <motion.img
             src={skill.icon}
             alt={skill.name}
@@ -55,7 +55,7 @@ export default function SkillCard({ skill }) {
         </div>
 
         {/* Name */}
-        <h3 className="text-sm font-bold tracking-[0.2em] uppercase text-white/40 group-hover:text-white transition-colors duration-300">
+        <h3 className="text-sm font-bold tracking-[0.2em] text-center uppercase text-white/40 group-hover:text-white transition-colors duration-300">
           {skill.name}
         </h3>
 
