@@ -20,14 +20,14 @@ function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
-import SkillCard from './SkillCard.jsx';
-import AnimatedBackground from './AnimatedBackground.jsx';
+import SkillCard from './cards/SkillCard.jsx';
+import AnimatedBackground from './ui/AnimatedBackground.jsx';
 import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-router-dom";
-import { GlassCard } from "./ui/GlassCard.jsx";
+import { GlassCard } from "./cards/GlassCard.jsx";
 import { SectionHeading } from "./ui/SectionHeading.jsx";
 import { data } from "../data/index.js";
-import { Footer } from "./Footer.jsx";
+import { Footer } from "./global/Footer.jsx";
 import ContactSection from "./ContactSection.jsx";
 
 
@@ -224,89 +224,94 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 bg-[#050505]">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading subtitle="Portfolio">Selected Works</SectionHeading>
+    <section id="projects" className="py-20 px-6 bg-[#050505]">
+  <div className="mx-auto max-w-7xl">
+    <SectionHeading subtitle="Portfolio">Selected Works</SectionHeading>
 
-          <div className="-mt-16 space-y-50">
-            {data.projects.map((project, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 items-center`}
+    <div className="space-y-32">
+      {data.projects.map((project, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 items-center`}
+        >
+          {/* Image Side - Fixed to show full height */}
+          <div className="w-full lg:w-[60%] relative group">
+            <div className="absolute -inset-10 bg-emerald-500/5 blur-[120px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+
+            {/* Removed fixed height (h-[500px]) to allow full image visibility */}
+            <div className="relative z-10 rounded-2xl bg-zinc-900/50 border border-white/10 p-2 md:p-4 transition-transform duration-500 group-hover:scale-[1.01] group-hover:border-emerald-500/30">
+              <a 
+                href={project.demo} 
+                target="_blank" 
+                rel="noreferrer"
+                className="block w-full"
               >
-                <div className="w-full lg:w-[60%] relative group">
-                  <div className="absolute -inset-10 bg-emerald-500/5 blur-[120px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-
-                  <div className="relative z-10 overflow-hidden rounded-2xl bg-zinc-900/50 border border-white/10 p-2 md:p-4 transition-transform duration-500 group-hover:scale-[1.02] group-hover:border-emerald-500/30">
-                    <Link
-                      to={project.demo}
-                    >
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-auto rounded-xl shadow-2xl transition-all duration-700"
-                        style={{ maxHeight: '70vh', objectFit: 'contain' }}
-                        referrerPolicy="no-referrer"
-                      />
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Content Side */}
-                <div className="w-full lg:w-[40%] space-y-8">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-4">
-                      <span className="text-emerald-500 font-mono text-sm tracking-[0.4em] font-bold">
-                        0{i + 1}
-                      </span>
-                      <span className="h-[1px] w-12 bg-zinc-800" />
-                      <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">{project.stack[0]}</span>
-                    </div>
-
-                    <h3 className="text-5xl md:text-7xl font-bold text-white tracking-tighter leading-none">
-                      {project.title}
-                    </h3>
-                  </div>
-
-                  <ul className="text-zinc-400 text-lg md:text-xl font-light leading-relaxed max-w-lg list-disc pl-5 space-y-2">
-                    {project.bullets.map((bullet, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-500 mt-1" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {project.stack.map((tech, index) => (
-                      <span key={index} className="text-[10px] text-zinc-600 border border-zinc-800/50 px-2 py-1 rounded uppercase tracking-tighter">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="pt-6">
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      className="group/link flex items-center gap-4 text-xs font-black uppercase tracking-[0.3em] text-white"
-                    >
-                      <span>View live Website</span>
-                      <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover/link:bg-emerald-500 group-hover/link:text-black group-hover/link:border-emerald-500 transition-all duration-500">
-                        <ArrowUpRight size={20} />
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  // w-full h-auto ensures the image is never cropped and displays fully
+                  className="w-full h-auto rounded-xl shadow-2xl border border-white/5"
+                  referrerPolicy="no-referrer"
+                />
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+
+          {/* Content Side */}
+          <div className="w-full lg:w-[40%] space-y-8">
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <span className="text-emerald-500 font-mono text-sm tracking-[0.4em] font-bold">
+                  0{i + 1}
+                </span>
+                <span className="h-[1px] w-12 bg-zinc-800" />
+                <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">{project.stack[0]}</span>
+              </div>
+
+              <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tighter leading-tight">
+                {project.title}
+              </h3>
+            </div>
+
+            <ul className="text-zinc-400 text-base md:text-lg font-light leading-relaxed max-w-lg space-y-3">
+              {project.bullets.map((bullet, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 mt-1 flex-shrink-0" />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-wrap gap-2 pt-2">
+              {project.stack.map((tech, index) => (
+                <span key={index} className="text-[10px] text-zinc-500 border border-zinc-800 px-2 py-1 rounded uppercase tracking-widest">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div className="pt-6">
+              <a
+                href={project.demo}
+                target="_blank"
+                className="group/link flex items-center gap-4 text-xs font-black uppercase tracking-[0.3em] text-white"
+              >
+                <span>View live Website</span>
+                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover/link:bg-emerald-500 group-hover/link:text-black group-hover/link:border-emerald-500 transition-all duration-500">
+                  <ArrowUpRight size={20} />
+                </div>
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* Education & Certs */}
       <section id="education" className="py-20 px-8 bg-white/[0.01]">
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-32">

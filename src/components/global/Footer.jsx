@@ -1,5 +1,5 @@
 import { Github, Linkedin, Mail } from "lucide-react";
-import { data } from "../data";
+import { data } from "../../data";
 
 export const Footer = () => {
   return (

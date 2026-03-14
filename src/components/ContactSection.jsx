@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import InputField from './ui/InputField'
-import { GlassCard } from './ui/GlassCard'
+import { GlassCard } from './cards/GlassCard'
 import { SectionHeading } from "./ui/SectionHeading";
 import { Mail, MapPin, MessageSquare, Phone, Send } from "lucide-react";
 import { data } from "../data";
