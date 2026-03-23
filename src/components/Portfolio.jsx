@@ -54,7 +54,7 @@ export default function Portfolio() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-emerald-500 uppercase tracking-widest mb-8"
             >
               <span className="w-1 h-1 bg-emerald-500 rounded-full animate-pulse" />
-              Available for new projects
+              Open for professional engagements
             </motion.div>
 
             <h1 className="text-3xl md:text-[10rem] font-black tracking-tighter text-white leading-[0.85] mb-8">
@@ -69,7 +69,7 @@ export default function Portfolio() {
                   {char}
                 </motion.span>
               ))}<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/20">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-white to-white/20">
                 {data.basics.name.split(' ')[1].split('').map((char, i) => (
                   <motion.span
                     key={i}
@@ -203,7 +203,7 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-8 bg-white/[0.01]">
+      <section id="skills" className="py-20 px-8 bg-white/1">
         <div className="mx-auto max-w-7xl">
           <SectionHeading subtitle="Capabilities">Skills</SectionHeading>
 
@@ -280,7 +280,7 @@ export default function Portfolio() {
             <ul className="text-zinc-400 text-base md:text-lg font-light leading-relaxed max-w-lg space-y-3">
               {project.bullets.map((bullet, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-emerald-500 mt-1 shrink-0" />
                   <span>{bullet}</span>
                 </li>
               ))}
@@ -313,7 +313,7 @@ export default function Portfolio() {
   </div>
 </section>
       {/* Education & Certs */}
-      <section id="education" className="py-20 px-8 bg-white/[0.01]">
+      <section id="education" className="py-20 px-8 bg-white/1">
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-32">
           <div>
             <SectionHeading subtitle="Background">Education</SectionHeading>

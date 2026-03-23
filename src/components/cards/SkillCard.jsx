@@ -38,7 +38,7 @@ export default function SkillCard({ skill }) {
       />
 
       {/* Main Card */}
-      <div className="relative bg-white/[0.03] border border-white/10 backdrop-blur-md rounded-2xl p-6 flex flex-col items-center justify-center gap-4 w-36 h-36 transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/[0.06]">
+      <div className="relative bg-white/3 border border-white/10 backdrop-blur-md rounded-2xl p-6 flex flex-col items-center justify-center gap-4 w-36 h-36 transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/6">
         {/* Icon Container */}
         <div className="relative flex items-center justify-center">
           <motion.img
@@ -49,7 +49,11 @@ export default function SkillCard({ skill }) {
             animate={isHovered ? {
               filter: "grayscale(0%) drop-shadow(0 0 8px " + skill.color + "80)",
             } : {
-              filter: "grayscale(100%)",
+                    filter:
+                      skill.name === "Express"
+                        ? `brightness(0) invert(1)`
+                        : `grayscale(100%)`,
+                 
             }}
           />
         </div>
@@ -61,7 +65,7 @@ export default function SkillCard({ skill }) {
 
         {/* Dynamic Underline */}
         <motion.div
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 h-[2px] rounded-full"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 h-0.5 rounded-full"
           initial={{ width: 0 }}
           animate={{ 
             width: isHovered ? "40%" : "0%",

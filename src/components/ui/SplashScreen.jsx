@@ -24,7 +24,7 @@ export default function SplashScreen({ onComplete }) {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }}
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#050505]"
+      className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-[#050505]"
     >
       <div className="relative flex flex-col items-center">
         {/* Animated Monogram */}
@@ -45,11 +45,11 @@ export default function SplashScreen({ onComplete }) {
         </motion.div>
 
         {/* Progress Bar Container */}
-        <div className="relative w-64 h-[1px] bg-white/5 rounded-full overflow-hidden">
+        <div className="relative w-64 h-1px bg-white/5 rounded-full overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
-            className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 shadow-[0_0_15px_rgba(16,185,129,0.8)]"
+            className="h-full bg-linear-to-r from-emerald-500 to-teal-400 shadow-[0_0_15px_rgba(16,185,129,0.8)]"
           />
         </div>
         
@@ -60,9 +60,7 @@ export default function SplashScreen({ onComplete }) {
           className="mt-6 flex items-center gap-3"
         >
           <div className="w-1 h-1 bg-emerald-500 rounded-full animate-ping" />
-          <p className="text-[9px] uppercase tracking-[0.4em] text-white/30 font-bold">
-            System Synchronizing
-          </p>
+          
         </motion.div>
       </div>
 

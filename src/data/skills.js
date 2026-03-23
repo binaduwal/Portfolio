@@ -45,7 +45,7 @@ export const skills = [
             },
             {
                 name: "Express",
-                color: "#000000",
+                color: "#ffffff",
                 icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
             },
             {
