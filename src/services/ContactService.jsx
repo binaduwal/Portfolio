@@ -1,12 +1,13 @@
 import axios from 'axios';
 
 const WEB3FORMS_API_URL = 'https://api.web3forms.com/submit';
-// const API_KEY = 'ec8a9af9-f2c8-4f52-908e-9c1057c01bce'; 
 
 export const sendContactForm = async (formData) => {
   try {
+    const API_KEY = import.meta.env.VITE_API_KEY;
+    if (!API_KEY) throw new Error('VITE_API_KEY is not set in env');
     const response = await axios.post(WEB3FORMS_API_URL, {
-      access_key: import.meta.env.API_KEY,
+      access_key: API_KEY,
       ...formData,
     });
 
